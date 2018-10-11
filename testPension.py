@@ -10,6 +10,12 @@ class Test(unittest.TestCase):
         pensionado = Pension(sesenta, 'M', 750, 0)
         self.assertTrue( pensionado.cumple() )
 
+    def test_hombre_59_750sem_oIns(self):
+        hoy = date.today()
+        sesenta = hoy.replace(year=hoy.year-60, day=hoy.day+1)
+        pensionado = Pension(sesenta, 'M', 750, 0)
+        self.assertFalse( pensionado.cumple() )
+
 
 if __name__ == "__main__":
     unittest.main()
