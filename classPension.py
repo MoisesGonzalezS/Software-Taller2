@@ -30,3 +30,5 @@ class Pension:
     def ajustarEdadObjetivo(self):
         if self.sexo == 'F':
             self.edadObjetivo = 55
+
+        self.edadObjetivo -= min( self.anosIns // 4, 5 )
