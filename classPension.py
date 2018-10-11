@@ -16,6 +16,7 @@ class Pension:
 
 
     def cumple(self):
+        self.ajustarEdadObjetivo()
         return (self.calcularEdad() >= self.edadObjetivo and
                  self.semCotizadas >= self.semAcotizar)
 
@@ -26,3 +27,6 @@ class Pension:
                 (hoy.month, hoy.day) < (nac.month, nac.day) )
         return edad
 
+    def ajustarEdadObjetivo(self):
+        if self.sexo == 'F':
+            self.edadObjetivo = 55
