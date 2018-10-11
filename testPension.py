@@ -34,5 +34,23 @@ class Test(unittest.TestCase):
         pensionado = Pension(nacimiento, 'F', 750, 0)
         self.assertTrue( pensionado.cumple() )
 
+    def test_mujer54_750_sem_0Ins(self):
+        hoy = date.today()
+        nacimiento = hoy.replace(year=hoy.year-55, day=hoy.day+1)
+        pensionado = Pension(nacimiento, 'F', 750, 0)
+        self.assertFalse( pensionado.cumple() )
+
+    def test_mujer55_749_sem_0Ins(self):
+        hoy = date.today()
+        nacimiento = hoy.replace(year=hoy.year-55)
+        pensionado = Pension(nacimiento, 'F', 749, 0)
+        self.assertFalse( pensionado.cumple() )
+
+    def test_mujer54_749_sem_0Ins(self):
+        hoy = date.today()
+        nacimiento = hoy.replace(year=hoy.year-55, day=hoy.day+1)
+        pensionado = Pension(nacimiento, 'F', 749, 0)
+        self.assertFalse( pensionado.cumple() )
+
 if __name__ == "__main__":
     unittest.main()
